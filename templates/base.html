@@ -1,0 +1,31 @@
+<!--This tells the browser the type of documlent, in this case html -->
+<!DOCTYPE html>
+
+<!--This is the root element, everythind inside it is part of the webpage-->
+<!--lang="en" is not mandatory but it will be used by browsers and others features to better understand content.-->
+<html lang="en">
+
+<!-- head contain metadata and instructions for the browser
+ it comes after html tag and before body tag-->
+<head>
+
+    <!--Set the character encoding so especial characters can display correctly-->
+    <meta charset="UTF-8" />
+
+    <!--viewport is the visible area of a webpage
+    after we define size and zoom scale of content, it is important so webpage is resized in mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- This will be the text shown in the web browser tab-->
+    <title>Daily Mood Logger</title>
+
+    <!--link tag loads a resource, in this case a css file
+    rel tells the browser about the type of file that is linked
+    href is the url of the css file
+    the part {{url_for(...) }} is Flask code to correct build path of CSS file
+    the flask part is important because it is safe, clean and flexible. It is Flask that will be responsible of giving the good path of css file
+    This is important to link external css file, so Flask can find it in /static folder-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+</html>
