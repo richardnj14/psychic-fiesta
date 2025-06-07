@@ -23,9 +23,10 @@ def submit():
     if mood:
         from datetime import datetime
         timestamp = datetime.now().strftime('%Y-%m-%D %H:%M:%S')
-        mood_history.append(f"{timestamp}-{mood.capitalize()}")
+        mood_history.append(f"{mood} - {timestamp}")
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
+    ##app.run(host='0.0.0.0', port=5000, debug=True) -> for running on all addresses
 

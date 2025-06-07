@@ -1,1 +1,94 @@
+/*This is a comment*/
+/*This selector means that we are applying these styles for every element of the page
+Here we are resseting margin and padding of the browser
+box-sizing tells how element dimensions are calculated, in this case we include border and paddings
+We also define a font for our page*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
+/*Center everything in the body and add a background*/
+body{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #e0e0e0;
+    color: #333
+}
+
+/*Style the main heading*/
+h1{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color:rgb(0, 0, 0);
+    font-size: 2.5rem;
+}
+
+/*Form styling*/
+form{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10 px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/*Select button*/
+select,button {
+    padding: 0.2rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 0rem;
+}
+
+select{
+    width: 100%;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    padding: 0.75rem;
+    transition: background-color 0.5s;
+}
+
+button:hover {
+    background-color: #2980b9
+}
+
+/*Mood history the # is an ID selector, it ensures that this will be applied just for the history elements of my html*/
+#history {
+    list-style-type: none;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+}
+
+#history li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    font-size : 0.9rem;
+}
+
+#history li:last-child{
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;    /* Reduce padding on small screens */
+    }
+    h1 {
+        font-size: 2rem;  /* Shrink the main heading */
+    }
+}
