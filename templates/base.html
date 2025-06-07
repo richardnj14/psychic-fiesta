@@ -38,7 +38,7 @@
     <form action="/submit" method="POST">
 
         <!--This is used to label the form and give it an id-->
-        <label> for="mood">Select your mood:</label>
+        <label for="mood">Select your mood:</label>
 
         <!--This start a dropdown menu, it's a form input
         name is the name of the response, when form is submittes chosen option is sent with 'name='
@@ -58,10 +58,16 @@
     </form>
 
     <!-- Section to show previously submitted moods-->
-     <h2>Yous Mood History:</h2>
+     <h2>Your Mood History:</h2>
+     <!--ul is for unordered list and it is used to create a bullet points list-->
      <ul id="history">
-        <!--TODO-->
+            <!--This is Flask for do something for each entry in history, it is followed by some html action and it ends with     {% endfor %}-->
+            {% for entry in history %}
+                <!--Show each founded entry in history like a list item (bullet point)-->
+                <li>{{entry}}</li>
+            {% endfor %}
      </ul>
-
+     <!--This will link JS file to this html script, we use Flask again to make path finding more easy, clean and safe-->
+     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
