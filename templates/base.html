@@ -22,7 +22,7 @@
     <!--link tag loads a resource, in this case a css file
     rel tells the browser about the type of file that is linked
     href is the url of the css file
-    the part {{url_for(...) }} is Flask code to correct build path of CSS file
+    It is Flask code to correct build path of CSS file
     the flask part is important because it is safe, clean and flexible. It is Flask that will be responsible of giving the good path of css file
     This is important to link external css file, so Flask can find it in /static folder-->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -30,43 +30,8 @@
 
 <!--body is the content of the page-->
 <body>
-    <!-- Main heading of the page
-     in HTML we have 6 levels of headings, 1 is the biggest and 6 the smallest and least important-->
-    <h1>How are you feeling today?</h1>
-
-    <!-- This start form that send data to the server when it is submitted-->
-    <form action="/submit" method="POST">
-
-        <!--This is used to label the form and give it an id-->
-        <label for="mood">Select your mood:</label>
-
-        <!--This start a dropdown menu, it's a form input
-        name is the name of the response, when form is submittes chosen option is sent with 'name='
-        id is used to connect it with label tag and css/JS scripts
-        it option has a value it is the value that is sent as response and also a text, it is what users see-->
-        <select name="mood" id="mood">
-            <option value="happy">😁 Happy</option>
-            <option value="happy">☹️ Sad</option>
-            <option value="happy">😴 Tired</option>
-            <option value="happy">😤 Angry</option>
-            <option value="happy">🤩 Excited</option>
-        </select>
-
-        <!-- Create a button to submit the form
-         type=submit tells the browser to submit form when button is clicked-->
-         <button type="submit">Submit</button>
-    </form>
-
-    <!-- Section to show previously submitted moods-->
-     <h2>Your Mood History:</h2>
-     <!--ul is for unordered list and it is used to create a bullet points list-->
-     <ul id="history">
-            <!--This is Flask for do something for each entry in history, it is followed by some html action and it ends with     {% endfor %}-->
-            {% for entry in history %}
-                <!--Show each founded entry in history like a list item (bullet point)-->
-                <li>{{entry}}</li>
-            {% endfor %}
-     </ul>
+    <!-- insert a placeholder in html base, to show form that is in index file-->
+    {% block content %}{% endblock %}
      <!--This will link JS file to this html script, we use Flask again to make path finding more easy, clean and safe-->
      <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
