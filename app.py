@@ -19,10 +19,13 @@ def submit():
     #when we define a form with the POST method in HTML, the submited data is inside a reques.form
     #.get('mood') tells that we wand to get the value of 'mood' which is the 'name' of our selection in HTML
     mood = request.form.get('mood')
-    #simply checks if mood variable is not null
-    if mood:
-        from datetime import datetime
-        timestamp = datetime.now().strftime('%Y-%m-%D %H:%M:%S')
+    comment = request.form.get('comment')
+    #simply checks if mood and comment variable is not null
+    from datetime import datetime
+    timestamp = datetime.now().strftime('%Y-%m-%D %H:%M:%S')
+    if mood is not None and comment is not None:
+        mood_history.append(f"{mood} - {timestamp} - {comment}")
+    elif mood:
         mood_history.append(f"{mood} - {timestamp}")
     return redirect(url_for('index'))
 
